@@ -1,0 +1,264 @@
+\section{Introduction and Background}
+
+This section details the background information to the problem and the justification for this research project. The background details the aims and objectives from the study, a literature review on PV and solar thermal systems as well as various optimisation methods available.
+
+\subsection{Justification}
+
+As fossil fuels continue to deplete and our environment continues to deteriorate, the generation of energy from renewable sources is becoming more important. Energy sources such as PV and solar thermal panels can be used together to provide both electricity and heat in unison with their own respective storage means. Many householders or companies could use their areal roof space to implement their own systems and thus, there lies an opportunity to find the ideal solution since the roof space for buildings is generally very limited in size. To simplify the process of finding the ideal combination for a specific building in a specific location, an optimisation algorithm can be used to optimise any given set of demand requirements and resource potential and generate a Pareto front of solutions.
+
+\subsection{Literature Review}
+
+The following section gives a detailed review of PV and solar thermal systems both as separate entities. A brief discussion of PVT systems is given. It is evident that many studies have been conducted on these systems as separate entities, but there is less in terms of a hybrid arrangement in the context of a residential or commercial rooftop space. Four optimisation methods are detailed, which are: mixed-integer linear programming (MILP), energy hub modelling, stochastic modelling and the chosen method for this paper, Genetic Algorithm (GA). A brief discussion of other optimisation methods available is also given. 
+
+There are three main systems that can be utilised in terms of energy 
+generation from a solar resource. These are photovoltaic (PV), 
+solar thermal and photovoltaic-thermal (PVT) systems.
+PVT systems are another possible solution to the optimisation problem 
+as they are capable of utilising the solar resource in a more efficient 
+manner in comparison to separate PV and solar thermal systems \cite{HE20113369}
+This study conducted at The University of Science and Technology of China 
+also states that the PVT system has a lower electrical and thermal efficiency 
+than that of PV and solar thermal as separate units. For this study, 
+PVT systems will not be modelled. This study will look at creating an 
+optimal hybrid system of PV and solar thermal systems as separate units 
+within the same system.
+
+\subsubsection{PhotoVoltaic and Solar-Thermal Systems}
+
+Photovoltaic (PV) systems are the most commonly used system for both 
+small-scale and large-scale energy generation projects. They work through 
+utilisation of the photovoltaic effect, in which voltage is generated within 
+the solar cell \cite{PVED}.
+
+Studies by Bai et al \cite{BAI201541}and Diaz-Dorado et al \cite{Diaz} indicated that partial 
+shading will have a detrimental effect on the module efficiency. This work 
+was continued by others where a model developed at The University of Osijek 
+in Croatia looked at finding the optimal PV configuration for a given areal 
+space \cite{TOPIC2017750}. It looked at the number of rows and module angle as well as accounting 
+for shading between rows of modules. The model used net present value (NPV) 
+as the deciding factor for the most optimal outcome. The results indicated a 
+high influence of shading between rows on the NPV output. The model, however, 
+only looked at 5-degree increments for the module angle and as such, there is scope 
+for a study with 1-degree resolutions. It only looked at one type of PV 
+module and did not account for different module variants. Data was collected 
+for the optimal tilt angle for different places in the Northern hemisphere 
+for numerous different time periods \cite{CHANG20091274}. This data indicated that the tilt 
+angle can be estimated from the duration of sunshine at a location. The work 
+also indicates that cloud cover will have a negative effect on the production 
+from PV systems. This work indicates that the place a module is installed on 
+the earth’s surface will change the tilt angle required for optimal 
+performance. Cloud cover, which can be more prevalent in certain geographic 
+locations, will also largely affect how the optimal layout will be determined.
+
+Solar thermal systems are another method of harvesting solar energy. 
+For the creation of hot water, they work by absorbing the energy from the sun 
+in the collector part of the module, which in turn heats up the fluid 
+contained within the panels. This fluid is then used to heat the water in 
+storage via a heat exchanger. There are two types of system that will be covered in this review, 
+flat plate collectors and evacuated tube collectors. These are the two most 
+suitable for a residential application.
+
+A road-map developed by \cite{MAURER2015704}
+for the future of building integrated solar
+thermal systems states that spatial distribution, transmittance, absorptance 
+and heat transfer are the main considerations for developing an efficient 
+solar thermal system. They indicate however, that shading as a result of poor 
+spatial distribution is less likely to occur on a roof-top and would be more 
+of a consideration on a facade. These parameters will all contribute towards 
+the performance of the collector system. \cite{BONHOTE2009799} discusses the performance of 
+unglazed flat-plate collectors and concludes that performance will be reduced 
+for space-heating purposes but can still perform adequately for domestic hot 
+water provisions. The results do however indicate that wind shelter is 
+necessary in order to gain an energy output that is adequate. These results 
+indicate that there is a trade-off in performance for the cheaper price of 
+the unglazed modules. The thermal performance of evacuated tube collectors 
+with different tube shapes was discussed by \cite{KIM2007772} which indicated that when 
+considering the effect of shadows on the tubes, a U-tube shape on a copper 
+plate returned the best energy output. If the effect from shadowing is not 
+considered, other models give better results and as such it can be said that 
+considering the effect of the shadow cast from tube to tube is extremely 
+important in order to obtain accurate results.
+
+\subsubsection{Electricity and Thermal Storage Systems}
+
+Short-term storage can play a vital role in providing energy during hours in which there is no sun. This can include during the night or during days in which there is a high level of cloud cover. For long-term storage, during the winter when there is less 
+sunlight and increased cloud cover, it is important to ensure that in the 
+case of domestic hot water and space heating that there is some form of 
+storage during this period.
+
+Storage of electricity from PV may come in the form of batteries or fuel 
+cells. The use of batteries is the most common method of storage for PV \cite{StoragePVED}. 
+A study conducted by \cite{DOUGLAS2016104} in which a dynamic model was developed for battery 
+and hydrogen fuel cells within a PV context. The results indicated that 
+battery storage was capable of sustaining provisions of low power loads for a 
+longer period of time than that of the hydrogen fuel cell. The hydrogen fuel 
+cell however, was capable of providing for higher power loads. They also 
+discussed the fact that a hydrogen fuel cell would not require replacement, 
+whereas the battery would. A comparison of hydrogen and battery storage was 
+conducted by \cite{ZHANG2017397} where a positive scenario indicates that hydrogen storage 
+achieved a higher NPV. However, in the more negative scenario, the battery 
+storage is still the more economical option. A comparison of the two 
+technologies in \cite{BELMONTE201621427} concluded that battery storage, due to its more mature 
+status, is still the most economical option.  They indicated that the cost of 
+the equipment required to produce the hydrogen is too expensive. It did 
+however, discuss the environmental benefits of using hydrogen fuel over 
+lithium-ion batteries.
+
+Solar thermal energy storage can be achieved through various avenues. 
+These include water storage tanks and ground-based storage as well as phase 
+change heat batteries. For long term storage of thermal energy, \cite{PINEL20113341} 
+indicates that the first account of seasonal storage was in 1939, where a 
+tank was buried underground. Storage temperatures peaked at 90{\degree}C and dropped 
+to 55{\degree}C over a 6-month time frame. A project in Canada utilised domestic hot 
+water storage and a space heating storage tank which met 93\% and 64\% of the 
+demands respectively \cite{cmhc}. A simulation conducted by \cite{Hugo} indicated that it 
+is not economically feasible to have solar energy provide 100\% solar fraction. 
+This was for a house in Canada where there is a colder climate and no 
+governmental subsidies available at the time. 
+
+Phase change materials (PCMs) are another means of long term thermal energy 
+storage. PCMs work by utilising latent heat. The advantage of PCMs over 
+traditional thermal energy storage is potentially higher thermal storage 
+density and lower heating losses \cite{ALABIDI20125802}. The temperature at which the phase change occurs is important as it will determine the heat transfer 
+process.
+
+\subsubsection{Optimisation Methods}
+
+In order to implement a hybrid PV and solar thermal system, it will be 
+required to optimise it. This optimisation process can take into account 
+various factors but will focus on one area such as economical or technical 
+specification. mixed-integer linear programming, energy 
+hub modelling stochastic simulation and genetic algorithms are discussed here. A brief 
+discussion of other, less commonly utilised methods, is also given.
+
+MILP is one method that can be used in order to optimise a system. 
+It is typically performed in three main steps \cite{Colesmith}: 
+\begin{itemize}
+  \item Definition of a set of variables representing choices for optimisation. 
+  \item Definition of problem constraints for the model.
+  \item Statement of the objective function.
+\end{itemize}
+
+The MILP method has been used more commonly in solar thermal collectors and 
+thermal storage chambers and not for a combination of PV, solar thermal and 
+storage. A model developed by \cite{COSTA2014921} for combined heat and power (CHP) in a 
+hospital accounted for thermal storage but did not account for storage losses, 
+rather only the accumulation of storage over time. A CHP system with cooling 
+is optimised in terms of its operation using MILP by \cite{BISCHI201412} over a short-term 
+period. The energy hub approach is used by \cite{OREHOUNIG2015277} for a decentralised energy 
+system in a neighbourhood in which thermal losses from storage are accounted 
+for. This approach assumes the losses are a given percentage of the storage 
+level. 
+
+More recently, a general model for energy supply systems optimisation was 
+developed by \cite{ITURRIAGA2017954} in which the MILP method was used. They used the method for 
+a case study on a house in Bilbao, Spain, in which roof availability was a 
+constraining factor. It contains a more detailed approach of the components 
+within the system than other MILP models detailed earlier. \cite{OMU2016313} developed an 
+iterative MILP model for the design and sizing of a solar thermal and storage 
+system. Results indicated similar trends and values to that of EnergyPlus 
+software and more accurate than a conventional MILP process. It works by 
+iterating the solar collector area and thermal storage volume until an 
+optimal solution is achieved. They indicated that future analysis should be 
+performed on developing an optimal solution to a hybrid system of PV, solar 
+thermal and storage for a fixed areal space. It can be said that the MILP 
+approach is linear in nature and therefore cannot be used for problems of a 
+non-linear nature.
+
+The energy hub model (EH) was developed by Geidl and Andersson \cite{Geidl1} and 
+is defined as a mixed energy carrier power system that provides three main 
+features: Input/output, conversion and storage. This approach to hybrid 
+energy systems presented a general mathematical model for power conversion 
+and allowed for thermal and electrical systems to be optimised as part of 
+one investigation \cite{Geidl1}. The initial model developed did not include storage 
+as part of the optimisation. They continued their work in \cite{Geidl2} in which an 
+objective function was given to minimise the cost of energy based on a 
+system of different energy inputs and specific demand-side requirements. 
+Several formulations for an energy hub model were evaluated by \cite{EVINS2014387}. These 
+formulations used MILP as part of their expression to balance the demand 
+and supply for the various forms of energy used. The new formulations 
+extended the original EH model to account for system efficiency and storage 
+losses. The addition of these further constraints resulted in a noteworthy 
+influence on study results. This research did however, only look at the 
+minimisation of carbon emissions.
+
+The Monte-Carlo method involves randomly assigning values for each loop of 
+a simulation. These values are recorded and once the simulation has been 
+run for a certain number of loops, a distribution of the results can be 
+given \cite{prob}. This distribution of results can then be used to classify which 
+simulations output the most optimised system. \cite{CABRAL20101628} used a stochastic 
+simulation to size a PV system and batteries in which results indicated 
+more reliable results than with a deterministic approach. For this 
+stochastic approach, historical data was used and is required for an 
+accurate analysis. Similar work by \cite{TAN20105082} used Monte-Carlo simulation for 
+battery sizing in a PV system. This simulation took into account load 
+profiles, weather information, and local historical data. Sensitivity 
+analysis was also conducted to test the robustness of the model to change. 
+The results indicated that the overall investment of the system was 
+influenced heavily by PV cost and export costs. The use of sensitivity 
+analysis within a stochastic model would seem easier to implement than 
+with a GA or MILP model.
+
+A genetic algorithm (GA) is one method that can be used to optimise the 
+system \cite{Goldberg}. It is based on natural selection. It revises a population of 
+separate solutions. During each step of the process, the GA selects single 
+entities within the population at random to be parents and uses them to 
+generate the next set of solutions. Over successive generations, the 
+population "evolves" to the optimised solution. The genetic algorithm uses 
+three main types of rules at each step to create the next generation \cite{matlab}:
+\begin{itemize}
+  \item Selection (the separate solutions that will create the next set of potential solutions).
+  \item Crossover (Combination of two solutions).
+  \item Mutation (random changes to solutions).
+\end{itemize}
+
+This method is used by \cite{FREITAS2015562} for a PV system in an attempt to 
+maximise the energy output and minimise the costs. Results indicate that this 
+method is capable of finding an ideal solution from two case studies. It 
+also states that it works better in smaller scale PV strings, which would be 
+ideal for a rooftop scenario in which the space is limited. Similar work is 
+conducted by \cite{kornelakis} in which the net economic benefit is maximised over a 
+project lifetime for PV modules in a grid connected system. This study does 
+not account for system losses or pitched rooftops. In this case, an 
+evolutionary algorithm is utilised \cite{Back}. In both of these cases, PV modules 
+are studied without the inclusion of solar thermal and storage. However, 
+the algorithms utilised should be fully transferrable to include solar 
+thermal and storage technologies. 
+
+GA was used for combined cooling, heating and power (CCHP) which obtained an 
+optimised system by following a general method. \cite{WANG20101325}. The GA follows a system 
+that takes the input data and performs a ‘fitness’ calculation. Simply, this 
+process is repeated until the GA parameters and objectives are satisfied. 
+The results from the study indicated that the GA method was effective in 
+optimising the system. A review of different optimisation methods conducted 
+in Istanbul by \cite{ERDINC20121412} gives an excellent summarising figure and description of the GA approach in regard to sizing energy systems. The 4 input categories of meteorological, economical, optimisation criteria and fitness function are fed into the GA procedure. This review indicates that the largest advantage of using GA is that it is a very efficient method for finding the optimum solution but does indicate that GA is a difficult process to implement due to its complexity.
+
+A hybrid optimisation model was developed using genetic algorithms by \cite{DUFOLOPEZ200533}. The model, named HOGA (Hybrid Optimisation by Genetic Algorithms) was capable of designing a PV-diesel hybrid system. It outputs the quantity of PV panels 
+and number of batteries required alongside the diesel requirements for the 
+optimised solution in terms of economics. It does not account for uncertainty 
+in solar irradiation data however, and this is something that can be 
+implemented into a new model.
+
+There are many other optimisation methods available outwith the four 
+that have been discussed above. Many of these have not been used in 
+the context of renewable energy system optimisation.  A review of 
+optimisation methods indicated particle swarm optimisation, ant 
+colony optimisation, artificial immune system, game theory and honey 
+bee mating algorithm are all potential future methods that can be used 
+for sizing and optimising of hybrid renewable energy systems \cite{ERDINC20121412} . 
+
+\subsection{Aim and Objectives}
+
+The aim of the work is to optimise the performance of PV and solar thermal hybrid systems for a building. In order to achieve this aim, the following objectives have been laid out: 
+\begin{itemize}
+
+\item Collect and analyse literature for PV and solar thermal systems. 
+\item Collect and analyse storage technologies for both electricity and heating demands. 
+\item Obtain resource and demand data sets for the project. 
+\item Develop a methodology consisting of equations for minimising objective functions.
+\item Optimise a system of PV, flat-plate collectors, Li-Ion batteries and PCM heat batteries using a genetic algorithm.
+\item Perform a critical analysis of the results obtained.
+\end{itemize}
+
+
+

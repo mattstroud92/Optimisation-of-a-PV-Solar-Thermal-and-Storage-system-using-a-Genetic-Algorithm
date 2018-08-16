@@ -1,0 +1,103 @@
+%%\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+ \documentclass[final,11pt,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+ %%\documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% The graphicx package provides the includegraphics command.
+\usepackage{graphicx}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{tabularx,ragged2e}
+\usepackage{booktabs}
+\usepackage{float}
+
+\journal{Heriot-Watt University, MSc in Renewable Energy Engineering}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+\title{Optimisation of a PV, Solar-Thermal and Storage system using a Genetic Algorithm}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+\author{Matthew Stroud\corref{student}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+\fntext[label2]{H00134137}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}p
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+
+\author{\\ Supervisor: Dr. Wolf Fr\"uh}
+\address{Edinburgh, Scotland}
+
+\begin{abstract}
+%% Text of abstract
+A simulation has been developed to optimise a system of PV, solar thermal and battery storage using a genetic algorithm under a set of boundaries and constraints. This paper gives detail of the background of different solar energy systems and various optimisation methods. A justification for the work is also detailed. The method by which the work has been carried out is laid out and assumptions and values are given. Results are presented in regard to two case studies which look at two separate resources. Each case gives details on the number of PV panels, flat-plates, Li-ion batteries and PCM heat batteries with respect to the two objective functions (fitness) of consumer cost and reduction in CO$_2$ emissions. A Pareto front of optimal solutions is shown and discussed. Storage charge is also shown as well as how the objective functions change as areal coverage increases. Sensitivity analysis is performed on both cases to see the affect of varying the demand on the Pareto front.
+
+\end{abstract}
+
+\begin{keyword}
+Renewables \sep Genetic Algorithm \sep Optimisation \sep PV \sep Solar Thermal \sep Energy Storage
+%% keywords here, in the form: keyword \sep keyword
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+%%\linenumbers
+
+%% main text
+\input{Sections/1IntroductionAndBackground}
+\input{Sections/2Methodology}
+\input{Sections/3ResultsAndDiscussion}
+\input{Sections/4ConclusionAndRecommendations}
+\input{Sections/5Acknowledgements}
+\appendix
+\input{Appendices/AppendixA}
+\clearpage
+\bibliographystyle{model1-num-names}
+\bibliography{References/Bibliography.bib}
+
+\end{document}

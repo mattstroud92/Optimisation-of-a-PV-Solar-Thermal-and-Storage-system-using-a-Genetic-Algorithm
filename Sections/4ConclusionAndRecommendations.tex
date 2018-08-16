@@ -1,0 +1,37 @@
+\section{Conclusion and Recommendations}
+
+In conclusion, this paper has developed a program to optimise a system of PV panels, flat-plate collectors, Li-Ion batteries and PCM heat batteries. This has been achieved through the use of a genetic algorithm to obtain a set of optimised solutions called the Pareto front. A review of literature on the subject has been conducted into solar technologies on rooftops and mathematical optimisation methods in order to gain an insight into ways of tackling the problem. The methodology developed is shown in detail with all equations and variables given, including a flow chart indicating the steps required in order to optimise the solutions. The genetic algorithm and its key inputs and outputs have been discussed, including the fitness function, constraint function, creation function, mutation function, crossover function and options function. The original demand data for the Lord Thomson building at Heriot-Watt University has been interpolated to match a general hourly energy use profile for both electricity and gas usage. 
+\newline
+Two cases have been simulated and the following conclusions can be drawn from the results: 
+
+\begin{itemize}
+\item In Scotland, the solar thermal potential is too low to meet the high thermal demands of a large building. 
+
+\item The PV panels perform well, contributing the full demand requirement for electrical energy between the months of April and September.
+
+\item When there is a large variation in the demand, the original Pareto front is changed significantly.
+
+\item The ability of the genetic algorithm to find a set of optimal solutions to a given scenario is evident, as long as the conditions of the scenario do not vary wildly in reality.
+
+\item A reduction in the demand by 50\% does not effect the Pareto front greatly when there is no constraint for a minimum demand requirement. A reduction in demand by 90\% shifts the curve greatly to the right and the transition from maximum to minimum consumer cost is much smoother and gradual (case 1 only).
+
+\item When the direct insolation potential is high, there is a large swing towards flat-pate collectors in order to meet the high thermal demand.
+
+\item The inclusion of a minimum demand constraint results in less variation in the number of panels and consequently a smaller, more constrained solution space.
+
+\item At the maximised end of the objectives on the Pareto front, the cumulative charge in the batteries is also maximised. 
+
+\item Consumer cost increases approximately linearly to the areal coverage and the reduction in CO$_2$ increases logarithmically.
+
+\end{itemize}
+
+Going forward, the following recommendations as to future work are laid out:
+
+\begin{itemize}
+\item The model could be improved upon by removing assumptions such as the constant ambient temperature. 
+
+\item An economy model could be implemented into the system to simulate changes in the cost of energy as well as the tariffs on offer. This would mean the ability to simulate over numerous years and varying conditions would allow for a more accurate Pareto front of optimal solutions being generated.
+
+\item Implement the algorithm on a small-scale, residential level to check validity.
+
+\end{itemize}
